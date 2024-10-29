@@ -24,4 +24,9 @@ dist-ssr
 *.sw?
 
 # API Mock
+.venv/
+gen.api.mock.py
 api.mock.json
+
+# Env
+.env

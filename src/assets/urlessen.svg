@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1126.92"
+   height="168.74997"
+   viewBox="0 0 1126.92 168.74997"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   <defs
+      id="defs1">
+      <rect
+         x="398.18887"
+         y="308.77103"
+         width="1453.04"
+         height="217.95602"
+         id="rect1" />
+   </defs>
+   <g
+      id="layer1"
+      transform="translate(-471.95458,-381.21738)">
+      <text
+         xml:space="preserve"
+         id="text1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);fill:#000000"
+         transform="translate(60.07762,46.10608)"><tspan
+         x="398.18945"
+         y="486.0488"
+         id="tspan8"><tspan
+           style="fill:#d40000"
+           id="tspan3">url</tspan><tspan
+           style="fill:#333333"
+           id="tspan4">essen</tspan><tspan
+           dx="-30.110001"
+           style="letter-spacing:-30.11px;fill:#333333"
+           id="tspan6">://</tspan></tspan></text>
+   </g>
+</svg>
