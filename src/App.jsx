@@ -15,6 +15,7 @@ import ErrorPage from "./routes/ErrorPage.jsx";
 import Logout from "./routes/Logout.jsx";
 import NewUrl from "./routes/NewUrl.jsx";
 import UpdateUrl from "./routes/UpdateUrl.jsx";
+import DeleteUrl from "./routes/DeleteUrl.jsx";
 
 dayjs.extend(utc);
 dayjs.extend(relativeTime);
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: "/usr/:username", element: <UserUrls /> },
       { path: "/new", element: <NewUrl /> },
       { path: "/urls/:urlId/edit", element: <UpdateUrl /> },
+      { path: "/urls/:urlId/delete", element: <DeleteUrl /> },
     ],
   },
 ]);
