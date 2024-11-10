@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc.js"
+import utc from "dayjs/plugin/utc.js";
 import relativeTime from "dayjs/plugin/relativeTime.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
@@ -14,6 +14,7 @@ import UserUrls from "./routes/UserUrls.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import Logout from "./routes/Logout.jsx";
 import NewUrl from "./routes/NewUrl.jsx";
+import UpdateUrl from "./routes/UpdateUrl.jsx";
 
 dayjs.extend(utc);
 dayjs.extend(relativeTime);
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: "/logout", element: <Logout /> },
       { path: "/usr/:username", element: <UserUrls /> },
       { path: "/new", element: <NewUrl /> },
+      { path: "/urls/:urlId/edit", element: <UpdateUrl /> },
     ],
   },
 ]);
