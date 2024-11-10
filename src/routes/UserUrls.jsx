@@ -1,12 +1,22 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import useAuth from "../hooks/useAuth.js";
-import { useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+import useAxiosPrivate from "../hooks/useAxiosPrivate.js";
+import UrlCard from "../components/UrlCard.jsx";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import NewUrlButton from "../components/NewUrlButton.jsx";
 
 export default function UserUrls() {
+  const theme = useTheme();
   const { auth } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const { username } = useParams();
+  const axiosPrivate = useAxiosPrivate();
+  const [urls, setUrls] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!auth) {
@@ -17,16 +27,57 @@ export default function UserUrls() {
     }
   }, [auth]);
 
+  useEffect(() => {
+    if (!username) return;
+    setIsLoading(true);
+
+    axiosPrivate
+      .get(`/users/${username}/urls`)
+      .then((res) => {
+        setUrls(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        navigate("/login?reason=denied", {
+          state: { from: location },
+          replace: true,
+        });
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
   return (
-    <pre>
-      <AuthJSON>
-        {JSON.stringify({ ...auth, token: undefined }, null, 2)}
-      </AuthJSON>
-    </pre>
+    <>
+      <UrlsContainer>
+        {urls.length !== 0 ? (
+          urls.map((url) => <UrlCard key={url.id} url={url} />)
+        ) : isLoading ? (
+          <Skeleton
+            height={100}
+            count={1}
+            borderRadius={5}
+            highlightColor={theme.skeletonLoaderMain}
+          />
+        ) : (
+          <span>No URLs yet...</span>
+        )}
+      </UrlsContainer>
+      <NewUrlButton />
+    </>
   );
 }
 
-const AuthJSON = styled.code`
-  font-size: 1.5rem;
-  overflow-wrap: break-word;
+const UrlsContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 60rem;
+
+  & > span {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
 `;
