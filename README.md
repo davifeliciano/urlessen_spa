@@ -1,8 +1,17 @@
-# React + Vite
+# urlessen_spa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+urlessen é um frontend em forma de single page aplication para encurtamento de
+URLs
 
-Currently, two official plugins are available:
+## Instruções
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para executar o projeto, primeiro siga as instruções para execução do backend no
+respositório [urlessen](https://github.com/davifeliciano/urlessen). Em seguida,
+clone o repositório e no diretório rode os seguintes comandos para iniciar um
+servidor de desenvolvimento escutando na porta 5173:
+
+```bash
+echo 'VITE_APP_API_URL="http://127.0.0.1:8000"' > .env
+npm install
+npm run dev
+```
