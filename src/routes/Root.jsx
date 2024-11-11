@@ -18,12 +18,12 @@ const Container = styled.div`
   flex-direction: column;
   gap: 3rem;
   min-width: 500px;
+
+  @media (max-width: 500px) {
+    min-width: auto;
+  }
 `;
 
 const OutletContainer = styled.div`
-  margin-inline: 15rem;
-
-  @media (max-width: 768px) {
-    margin-inline: auto;
-  }
+  margin-inline: auto;
 `;
